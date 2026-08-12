@@ -42,6 +42,8 @@ Manta and using a 5mm grid rather than a 4mm grid.
 ## Building
 
 The build environment for this can be automatically set up if you're using Nix.
+### Nix Environment
+- On Windows, run in wsl (Ubuntu 24.04.1 LTS)
 - Install Nix thus:
 ```
 curl -L https://nixos.org/nix/install | sh -s -- --no-daemon
@@ -56,6 +58,7 @@ nix develop --extra-experimental-features nix-command --extra-experimental-featu
 make all
 ```
 ----------
+### Non-Nix Environment
 If you are not using Nix, you need the following:
 
 - GNU Make
