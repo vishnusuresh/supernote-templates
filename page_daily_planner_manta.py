@@ -76,6 +76,7 @@ canvas = svg.SVG(
                 svg.h(grid_size * grid_width),
             ],
         ),
+        # Text field for Date
         svg.Text(
             font_size= 3 * MM,
             font_family="Monaco",
@@ -88,9 +89,6 @@ canvas = svg.SVG(
                     y=top_corner[1] + (1 * grid_size),
                     text="DATE : __________________",
                 )
-                #for (i, day) in enumerate(6, 8, 10, 12, 14, 16, 18, 20)
-                #for (i, time) in enumerate(("06:00", "08:00", "10:00", "12:00", "14:00", "16:00", "18:00", "20:00"))
-                #for (i, time) in enumerate(("06:00", "08:00", "10:00", "12:00", "14:00", "16:00", "18:00", "20:00"))
             ],
         ),
         # Offset Line
@@ -106,9 +104,25 @@ canvas = svg.SVG(
                 svg.v(grid_size * grid_height),
             ],
         ),
-        # Centre Line
+        # Centre Offset
+        *[
+                svg.Path(
+                    stroke="#888888",
+                    fill="none",
+                    stroke_width=1,
+                    d=[
+                        svg.M(
+                            x=top_corner[0] + (offset_line * grid_size) + (i * 8 * grid_size),
+                            y=top_corner[1] + 4 * grid_size,
+                        ),
+                        svg.v(grid_size * grid_height),
+                    ],
+                )
+            for i in range(1,4)
+        ],
+        # Middle Line
         svg.Path(
-            stroke="#000000",
+            stroke="#444444",
             fill="none",
             stroke_width=2,
             d=[
@@ -119,15 +133,32 @@ canvas = svg.SVG(
                 svg.h(grid_size * grid_height),
             ],
         ),
+        # Hour partition
+        *[
+                svg.Path(
+                    stroke="#888888",
+                    fill="none",
+                    stroke_width=1,
+                    d=[
+                        svg.M(
+                            x=top_corner[0] + 4 * grid_size,
+                            y=top_corner[1] + (i * grid_size * 4),
+                        ),
+                        svg.h(grid_size * grid_height),
+                    ],
+                )
+            for i in range(1,9)
+        ],
+        # Time Period
         svg.Text(
             font_size= 3 * MM,
             font_family="Monaco",
-            fill= "#CCCCCC",
+            fill= "#AAAAAA",
             dominant_baseline="middle",
             elements=[
                 svg.TSpan(
                     text_anchor="middle",
-                    x=top_corner[0] + 2 * grid_size,
+                    x=top_corner[0] + 3 * grid_size,
                     y=top_corner[1] + (7.75 * grid_size) + (i * grid_size * 4),
                     text=time,
                 )
