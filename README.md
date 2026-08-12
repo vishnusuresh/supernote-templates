@@ -9,7 +9,7 @@ different layouts and grid sizes.
 ## Downloading
 
 All generated files are uploaded to the [releases
-page](https://github.com/belak/supernote-templates/releases).
+page](https://github.com/vishnusuresh/supernote-templates/releases).
 
 ## Templates
 
@@ -42,7 +42,20 @@ Manta and using a 5mm grid rather than a 4mm grid.
 ## Building
 
 The build environment for this can be automatically set up if you're using Nix.
-
+- Install Nix thus:
+```
+curl -L https://nixos.org/nix/install | sh -s -- --no-daemon
+```
+- Open another shell and run:
+```
+nix develop --extra-experimental-features nix-command --extra-experimental-features flakes
+```
+- This launches a Nix shell (`nix-shell`) environment
+- Within this environment, run:
+```
+make all
+```
+----------
 If you are not using Nix, you need the following:
 
 - GNU Make
