@@ -54,9 +54,14 @@ nix develop --extra-experimental-features nix-command --extra-experimental-featu
 ```
 - This launches a Nix shell (`nix-shell`) environment
 - Within this environment, run:
-```
-make all
-```
+  - Just Once
+   ```
+   poetry install
+   ```
+   - Then
+   ```
+   make all
+   ```
 ----------
 ### Non-Nix Environment
 If you are not using Nix, you need the following:
